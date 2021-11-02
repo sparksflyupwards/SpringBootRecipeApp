@@ -39,11 +39,11 @@ public class StartUp implements CommandLineRunner {
 
 
 
-        System.out.println(user1.getRecipes());
+        System.out.println("User Meals: " + user1.getPlannedmeals());
         System.out.println("User ID: " + user1.getId());
-        System.out.println(user1.getPlannedmeals());
-        System.out.println(recipe1.getId());
-        System.out.println(meal1.getTitle());
+        System.out.println("User Recipes: " + user1.getRecipes());
+        System.out.println("Recipe: " + recipe1.getTitle());
+        System.out.println("Meal: " + meal1.getTitle());
 
         System.out.println("Number of recipes " + recipeRepository.count());
 

@@ -2,23 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type= "text/css" href="/myStyleSheet.css">
-    <title>Title</title>
-    <style>
-        .loginContainer{
-            width: 200px;
-            height: 200px;
-            background-color: lightgray;
-            margin-right: auto;
-            margin-left: auto;
-            margin-top: 200px;
+<!--    <link rel="stylesheet" type= "text/css" href="../../static/myStyleSheet.css">-->
+    <link th:rel="stylesheet" th:href="@{/myStyleSheet.css} "/>
+    <title>Login</title>
 
-
-        }
-    </style>
 </head>
 <body>
-<div class="loginContainer">
+<div class="container bg-primary">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card m-3">
     <label for="uname">Username</label>
     <br>
     <input type="text" id="uname"  name="uname" required>
@@ -29,10 +21,11 @@
     <br><br>
     <button type="submit">Login</button>
     <br><br>
-    <form action="/register">
+    <form action="/register" class="d-flex justify-content-center">
         <input type="submit" value="Register">
     </form>
+        </div>
+    </div>
 </div>
-
 </body>
 </html>
