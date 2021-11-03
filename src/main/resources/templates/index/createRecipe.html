@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <link rel="stylesheet" type= "text/css" href="/myStyleSheet.css">
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Create New Recipe</title>
     <style>
 
         .loginContainer{
-            width: 1200px;
+            width: 75%;
             height: auto;
             background-color: lightgray;
             margin-right: auto;
             margin-left: auto;
             margin-top: 200px;
         }
-        input[type=text], select {
+        input[type=text], select, textarea {
             width: 100%;
             padding: 12px 20px;
             display: inline-block;
@@ -27,23 +30,39 @@
 </head>
 <body>
 
-<div class="container">
-    <nav>
-        <ul>
-            <li><a href="/recipeBook">Recipe book</a></li>
-            <li><a href="/listOfRecipes">List of recipes</a></li>
-            <li><a href="/planner">Planner</a></li>
-            <li><a href="/search" >Search</a></li>
-            <li><a href="/home">Profile</a></li>
-            <li><a href="/">Logout</a></li>
-        </ul>
+<div class="container bg-success" style="padding: 0; width: 70%; height: 100vh">
+    <nav class="bg-navbar navbar-fixed-top col-centered" style="width: 70%;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand txt-navbar" href="/favorites">Recipe Book</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a class="txt-navbar" href="/home">Home</a></li>
+                <li><a class="txt-navbar" href="/favorites">Favorites</a></li>
+                <li><a class="txt-navbar" href="/forum">Forum</a></li>
+                <li><a class="txt-navbar" href="/recipeBook">Recipe book</a></li>
+                <li><a class="txt-navbar" href="/planner">Planner</a></li>
+                <li><a class="txt-navbar" href="/home">Profile</a></li>
+                <li><a class="txt-navbar" href="/">Logout</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" action="/favorites">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
     </nav>
-</div>
-<h1>Create new recipe</h1>
-<div class="loginContainer">
-    <label for="recipeTitel">Recipe titel</label>
+
+<h1 style="margin-top: 75px; text-align: center">Create new recipe</h1>
+<div class="loginContainer" style="margin: 0 auto; padding: 0;">
+    <label for="recipeTitle">Recipe title</label>
     <br>
-    <input type="text" id="recipeTitel"  name="recipeTitel" required>
+    <input type="text" id="recipeTitle" name="recipeTitle" required>
     <br><br>
     <label for="description">Description</label>
     <br>
@@ -51,7 +70,7 @@
     <br><br>
     <label for="contents">Contents</label>
     <br>
-    <input type="text" id="contents" name="contents" required>
+    <textarea id="contents" name="contents" style="height: 300px" required></textarea>
     <br><br>
     <label for="category">Category</label>
     <br>
@@ -71,5 +90,8 @@
 
 
 </div>
+
+</div>
+
 </body>
 </html>

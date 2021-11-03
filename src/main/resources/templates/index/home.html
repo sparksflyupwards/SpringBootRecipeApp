@@ -1,75 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" type= "text/css" href="/myStyleSheet.css">
+    <link rel="stylesheet" type= "text/css" href="/bootstrap.css">
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        .left{
-            float: left;
-            height: 250px;
-            width: 250px;
-            background-color: lightgray;
-            margin-left: 600px;
-            text-align: center;
-        }
-        .right{
-            float: right;
-            height: 250px;
-            width: 250px;
-            background-color: lightgray;
-            margin-right: 600px;
-            text-align: center;
-        }
-        .marginT{
-            margin-top: 300px;
-        }
-
-        .box{
-            margin-top: 20px;
-            height: 50px;
-            width: 600px;
-            margin-right: auto;
-            margin-left: auto;
-            background-color: lightgray;
-            text-align: center;
-        }
-    </style>
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Home</title>
 </head>
-<body>
-<div class="container">
-    <nav>
-        <ul>
-            <li><a href="/recipeBook">Recipe book</a></li>
-            <li><a href="/listOfRecipes">List of recipes</a></li>
-            <li><a href="/planner">Planner</a></li>
-            <li><a href="/search" >Search</a></li>
-            <li><a href="/home">Profile</a></li>
-            <li><a href="/">Logout</a></li>
-        </ul>
+<body class="bg-warning">
+
+
+<!-- Big Container -->
+<div class="container bg-success" style="padding: 0; width: 70%; height: 100vh">
+    <!-- Main Nav Bar -->
+    <nav class="bg-navbar navbar-fixed-top col-centered" style="width: 70%;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand txt-navbar" href="/favorites">Recipe Book</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a class="txt-navbar txt-black" href="/home">Home</a></li>
+                <li><a class="txt-navbar" href="/favorites">Favorites</a></li>
+                <li><a class="txt-navbar" href="/forum">Forum</a></li>
+                <li><a class="txt-navbar" href="/recipeBook">Recipe book</a></li>
+                <li><a class="txt-navbar" href="/planner">Planner</a></li>
+                <li><a class="txt-navbar" href="/home">Profile</a></li>
+                <li><a class="txt-navbar" href="/">Logout</a></li>
+            </ul>
+                <form class="navbar-form navbar-left" action="/favorites">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+
+                </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fas fa-pen-square"></i> Sign Up</a></li>
+                <li><a href="#"><i class="fas fa-keyboard"></i> Login</a></li>
+            </ul>
+        </div>
     </nav>
+    <!-- End of Main Nav Bar -->
+
+
+<!-- Small Tab Navbar -->
+    <div class="navbar col-centered" style="margin-top: 80px">
+        <nav class="navbar" style="text-align: center; margin: 0">
+                <ul class="nav nav-tabs" style="display: inline-table">
+                    <li class="active" style="display: inline"><a data-toggle="tab" class="" href="#home">Profile</a></li>
+                    <li><a data-toggle="tab" class="" href="#menu1">Favorites</a></li>
+                    <li><a data-toggle="tab" class="" href="#menu2">Planned Meals</a></li>
+                    <li><a data-toggle="tab" class="" href="#menu3">Categories</a></li>
+                    <li><a data-toggle="tab" class="" href="#menu4">My Recipes</a></li>
+                </ul>
+        </nav>
+    </div>
+<!-- End of Small Tab Navbar -->
+
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <!-- Profile Details -->
+            <img src="images/pasta.jpeg" class="img-responsive img-circle col-centered" alt="Responsive image" style="width: 200px; height: 200px;">
+            <div class="bg-warning col-centered" style="width: 50%; margin-top: 50px;">
+                <p>Name</p>
+                <p>Birthdate</p>
+                <p>Username</p>
+                <p>Total recipes</p>
+                <!-- Trigger/Open The Modal -->
+                <div class="bg-success col-centered" style="width: 30%; margin-top: 20px">
+                    <button id="myBtn" class="btn btn-edit" style="width: 100%">Edit profile</button>
+                </div>
+            </div>
+            <!-- End of Profile Details -->
+        </div>
+
+
+        <div id="menu1" class="tab-pane fade">
+<!-- Start of Favorites GRID -->
+            <div class="container bg-danger" style="width: 70%;">
+
+                            <nav class="navbar" style="margin: 0 auto; width: 50%;">
+                                <ul class="nav nav-pills" style="margin: 0 auto; width: 75%;">
+                                    <li style="margin: 0 auto; width: 100%;"><a style="text-align: center" class="txt-navbar" href="#" id="createBtn">Create Recipe</a></li>
+                                </ul>
+                            </nav>
+
+
+                        <!-- The Create Modal -->
+                        <div id="createModal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close1">&times;</span>
+                                <label for="recipeTitle">Recipe title</label>
+                                <br>
+                                <input type="text" id="recipeTitle" name="recipeTitle" required>
+                                <br><br>
+                                <label for="description">Description</label>
+                                <br>
+                                <input type="text" id="description" name="description" required>
+                                <br><br>
+                                <label for="contents">Contents</label>
+                                <br>
+                                <textarea id="contents" name="contents" style="height: 300px" required></textarea>
+                                <br><br>
+                                <label for="category">Category</label>
+                                <br>
+                                <select id="category" name="category">
+                                    <option value="test1">test1</option>
+                                    <option value="test2">test2</option>
+                                </select>
+                                <br><br>
+                                <label for="levelOfDificulty">Level of dificulty (1-5)</label>
+                                <br>
+                                <input type="number" id="levelOfDificulty" name="levelOfDificulty" required>
+                                <br><br>
+                                <button type="createRecipe">Create recipe</button>
+                            </div>
+                        </div>
+
+                    <div style="margin-top: 5vh; margin-bottom: 6vh;">
+                        <h1 style="text-align: center">Recipes</h1>
+                        <div class="boxCenter">
+                            <div class="left">
+                                <img src="/images/pasta.jpeg" height="100%" width="100%">
+                            </div>
+                            <div class="left">
+                                <p>Recipe Title</p>
+                                <br>
+                                <p>Category</p>
+                                <!-- Trigger/Open The Modal -->
+                                <button id="editBtn">Edit recipe</button>
+                                <!-- The Edit Modal -->
+                                <div id="editModal" class="modal">
+                                    <!-- Modal content -->
+                                    <div class="modal-content">
+                                        <span class="close2">&times;</span>
+                                        <label for="editRecipeTitle">Recipe title</label>
+                                        <br>
+                                        <input type="text" id="editRecipeTitle" name="editRecipeTitle" required>
+                                        <br><br>
+                                        <label for="editDescription">Description</label>
+                                        <br>
+                                        <input type="text" id="editDescription" name="editDescription" required>
+                                        <br><br>
+                                        <label for="editContents">Contents</label>
+                                        <br>
+                                        <textarea id="editContents" name="editContents" style="height: 300px" required></textarea>
+                                        <br><br>
+                                        <label for="editCategory">Category</label>
+                                        <br>
+                                        <select id="editCategory" name="editCategory">
+                                            <option value="test1">test1</option>
+                                            <option value="test2">test2</option>
+
+                                        </select>
+                                        <br><br>
+                                        <label for="editLevelOfDifficulty">Level of difficulty (1-5)</label>
+                                        <br>
+                                        <input type="number" id="editLevelOfDifficulty" name="editLevelOfDifficulty" required>
+                                        <br><br>
+                                        <button type="editRecipe">Edit Recipe</button>
+                                        <button type="editRecipe">Delete Recipe</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="left">
+                                <img src="/images/pizza.jpeg" height="100%" width="100%">
+                            </div>
+
+                            <div class="right">
+                                <p>Recipe Title</p>
+                                <br>
+                                <p>Category</p>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+<!-- End of Favorites GRID -->
+        </div>
+
+
+        <div id="menu2" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        </div>
+        <div id="menu3" class="tab-pane fade">
+            <h3>Menu 3</h3>
+            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+        <div id="menu4" class="tab-pane fade">
+            <h3>Menu 4</h3>
+            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+    </div>
+
+
+
+<!-- Profile Details -->
+<!--    <img src="images/pasta.jpeg" class="img-responsive img-circle col-centered" alt="Responsive image" style="width: 200px; height: 200px;">-->
+
+<!--    <div class="bg-warning col-centered" style="width: 50%; margin-top: 50px;">-->
+<!--            <p>Full name</p>-->
+<!--            <p>Bithdate</p>-->
+<!--            <p>Username</p>-->
+<!--            <p>Password</p>-->
+<!--            <p>Total recipes</p>-->
+<!--            &lt;!&ndash; Trigger/Open The Modal &ndash;&gt;-->
+<!--        <div class="bg-success col-centered" style="width: 30%; margin-top: 20px">-->
+<!--            <button id="myBtn" class="btn btn-edit" style="width: 100%">Edit profile</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!-- End of Profile Details -->
+</div>
+<!-- End of Big Container -->
+
+<!-- The Profile Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+                <label for="fullname">Full name</label>
+                <br>
+                <input type="text" id="fullname" name="fullname" required>
+                <br><br>
+                <label for="birthdate">Birthdate</label>
+                <br>
+                <input type="birthdate" id="birthdate" name="birthdate" required>
+                <br><br>
+                <label for="username">Username</label>
+                <br>
+                <input type="text" id="username"  name="username" required>
+                <br><br>
+                <label for="psw">Password</label>
+                <br>
+                <input type="password" id="psw" name="psw" required>
+                <br><br>
+                <button type="submit">Submit</button>
+                <br><br>
+        </div>
+    </div>
 </div>
 
-<div class="left">
-    <p>Add Avatar</p>
-</div>
-<div class="right">
-<p>Username</p>
-    <p>Date of birth</p>
-    <p>Total recipes</p>
 
-</div>
-<div class="marginT">
-    <div class="box"> Planned meals </div>
-    <div class="box"> Favorites</div>
-    <div class="box"> Categories</div>
-    <div class="box"> Recipes</div>
-    <div class="box"> Delete recipe</div>
-    <div class="box"> Delete planned meals</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    var createModal = document.getElementById("createModal");
+    var editModal = document.getElementById("editModal");
 
 
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    var createBtn = document.getElementById("createBtn");
+    var editBtn = document.getElementById("editBtn");
 
 
-</div>
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    var span2 = document.getElementsByClassName("close1")[0];
+    var span3 = document.getElementsByClassName("close2")[0];
+
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    createBtn.onclick = function() {
+        createModal.style.display = "block";
+    }
+    editBtn.onclick = function() {
+        editModal.style.display = "block";
+    }
+
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    span2.onclick = function() {
+        createModal.style.display = "none";
+    }
+    span3.onclick = function() {
+        editModal.style.display = "none";
+    }
+
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal || event.target == editModal || event.target == createModal) {
+            modal.style.display = "none";
+            editModal.style.display = "none";
+            createModal.style.display = "none";
+        }
+    }
+</script>
+<script src="https://kit.fontawesome.com/2184cbeaba.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -6,11 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Meal Planner</title>
+    <title>Favorites</title>
+
 </head>
 <body>
-<div class="container">
-    <!-- Main Nav Bar -->
+
+
+
+<div class="container bg-success" style="padding: 0; width: 70%; height: 100vh">
     <nav class="bg-navbar navbar-fixed-top col-centered" style="width: 70%;">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -18,10 +21,10 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a class="txt-navbar" href="/home">Home</a></li>
-                <li><a class="txt-navbar" href="/favorites">Favorites</a></li>
+                <li class="active"><a class="txt-navbar txt-black" href="/favorites">Favorites</a></li>
                 <li><a class="txt-navbar" href="/forum">Forum</a></li>
                 <li><a class="txt-navbar" href="/recipeBook">Recipe book</a></li>
-                <li class="active"><a class="txt-black" href="/planner">Planner</a></li>
+                <li><a class="txt-navbar" href="/planner">Planner</a></li>
                 <li><a class="txt-navbar" href="/home">Profile</a></li>
                 <li><a class="txt-navbar" href="/">Logout</a></li>
             </ul>
@@ -37,10 +40,61 @@
             </ul>
         </div>
     </nav>
-    <!-- End of Main Nav Bar -->
+
+
+<div class="grid-container" style="margin-top: 60px">
+    <div>Collection/Recipe</div>
+<!--    <div>-->
+<!--        <input type="search" id="gsearch" name="gsearch">-->
+<!--        <input type="submit" value="Search">-->
+<!--    </div>-->
 </div>
 
-<h1>planner</h1>
+<div class="grid-container1">
+    <div>Create collection</div>
+    <div>
+        <div class="grid-container2">
+            <div>1</div>
+            <div>2</div>
+        </div>
+        <div class="grid-container2">
+            <div>1</div>
+            <div>2</div>
+        </div>
+        <h3>Dish1</h3>
+        <p>Number of recipes</p>
+    </div>
+
+    <div>
+        <div class="grid-container2">
+            <div>1</div>
+            <div>2</div>
+        </div>
+        <div class="grid-container2">
+            <div>1</div>
+            <div>2</div>
+        </div>
+        <h3>Dish2</h3>
+        <p>Number of recipes</p>
+    </div>
+
+    <div>
+        <div class="grid-container2">
+            <div>1</div>
+            <div>2</div>
+        </div>
+        <div class="grid-container2">
+            <div>1</div>
+            <div>2</div>
+        </div>
+        <h3>Dish3</h3>
+        <p>Number of recipes</p>
+    </div>
+
+    </div>
+</div>
+
+</div>
 
 </body>
 </html>
