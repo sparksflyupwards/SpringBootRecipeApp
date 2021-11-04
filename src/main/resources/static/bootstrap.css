@@ -1097,7 +1097,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: #4ca5f1;
   text-decoration: none;
 }
 a:hover,
@@ -3212,8 +3212,8 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #ef7521;
+  border-color: #fcb88e;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -3223,8 +3223,8 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: #733003;
+  border-color: #fa6c20;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -4064,7 +4064,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: #ffa860;
 }
 .nav > li.disabled > a {
   color: #777777;
@@ -4092,7 +4092,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   max-width: none;
 }
 .nav-tabs {
-  border-bottom: 1px solid #d7d7d7;
+  border-bottom: 2px solid #d7d7d7;
 }
 .nav-tabs > li {
   float: left;
@@ -4105,15 +4105,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-radius: 4px 4px 0 0;
 }
 .nav-tabs > li > a:hover {
-  border-color: #eeeeee #eeeeee #ddd;
+  border-color: #e0aa00 #d0670f #fff2c5;
 }
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #ffeb00;
+  color: #fff584;
   cursor: default;
-  background-color: #f39749;
-  border: 1px solid #ff4d00;
+  background-color: #fa0101;
+  border: 1px solid #ff8652;
   border-bottom-color: transparent;
 }
 .nav-tabs.nav-justified {
@@ -5984,8 +5984,9 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #fff;
-  background-clip: padding-box;
+  background: rgba(251, 209, 183, 0.6);
+  background-color: #d7d7d7;
+  /*background-clip: padding-box;*/
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
@@ -6012,7 +6013,7 @@ button.close {
 }
 .modal-header {
   padding: 15px;
-  border-bottom: 1px solid #e5e5e5;
+  /*border-bottom: 1px solid #e5e5e5;*/
 }
 .modal-header .close {
   margin-top: -2px;
@@ -6028,7 +6029,7 @@ button.close {
 .modal-footer {
   padding: 15px;
   text-align: right;
-  border-top: 1px solid #e5e5e5;
+  /*border-top: 1px solid #e5e5e5;*/
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;
